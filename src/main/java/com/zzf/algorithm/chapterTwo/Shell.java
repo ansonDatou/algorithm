@@ -12,6 +12,7 @@ public class Shell {
      * @param a
      */
     public static void sort(Comparable[] a) {
+        int index = 0;
         int n = a.length;
         int h = 1;
         System.out.println("a.length = " + a.length);
@@ -20,6 +21,7 @@ public class Shell {
         while (h < n/3) {
             h = 3 * h + 1;
         }
+        h = h/2;
         System.out.println("init h = " + h);
 
         while (h >= 1) {
@@ -36,12 +38,14 @@ public class Shell {
                     System.out.println("<<<<< 排序之后 >>>>>");
                     Example.show(a);
                     System.out.println("==============================");
+                    index++;
                 }
             }
             System.out.println("||||||||||||||||||||||||||||||||||||||||||||||||||");
             h = h/3;
             System.out.println("h = h/3 = " + h);
         }
+        System.out.println("【共循环"+ index +"次】");
     }
 
     public static void main(String[] args) {

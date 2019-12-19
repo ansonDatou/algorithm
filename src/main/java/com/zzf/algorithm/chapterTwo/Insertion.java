@@ -13,7 +13,8 @@ public class Insertion {
      */
     public static void sort(Comparable[] a) {
 
-        // 因为把第一个元素当做有序序列，所以从i=0开始
+        // 因为假设把第一个元素当做有序序列，所以从i=1开始
+        int index = 0;
         for (int i = 1; i < a.length; i++) {
             // j > 0 : 防止数组越界
             for (int j = i; j > 0 && Example.less(a[j], a[j-1]); j--) {
@@ -24,9 +25,11 @@ public class Insertion {
                 Example.exch(a, j, j - 1);
                 System.out.println("<<<<< 第 " + (i-1) + " 次排序后 >>>>>");
                 Example.show(a);
+                index++;
             }
             System.out.println("================================================== i = " + i);
         }
+        System.out.println("【共循环"+ index +"次】");
     }
 
     public static void main(String[] args) {
