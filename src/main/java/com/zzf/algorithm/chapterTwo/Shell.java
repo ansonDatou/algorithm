@@ -21,7 +21,7 @@ public class Shell {
         while (h < n/3) {
             h = 3 * h + 1;
         }
-        h = h/2;
+
         System.out.println("init h = " + h);
 
         while (h >= 1) {

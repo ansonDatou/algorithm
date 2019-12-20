@@ -20,6 +20,11 @@ public class Selection {
      * 内循环：列
      * 谁与谁比较
      *
+     * 假设index=0是min
+     * 外：从头到尾
+     * 内：比较当前和min
+     * 内循环之后进行替换
+     *
      * @param a
      */
     public static void sort(Comparable[] a) {
