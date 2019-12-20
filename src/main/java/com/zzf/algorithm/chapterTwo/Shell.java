@@ -15,7 +15,7 @@ public class Shell {
         int index = 0;
         int n = a.length;
         int h = 1;
-        System.out.println("a.length = " + a.length);
+        System.out.println("n = a.length = " + a.length);
 
         // 增量序列h
         while (h < n/3) {
@@ -25,17 +25,18 @@ public class Shell {
         System.out.println("init h = " + h);
 
         while (h >= 1) {
-            // 进行h趟排序
+            // 进行h趟排序, i到n个子序列
             for (int i = h; i < n; i++) {
+                System.out.println("n:"+ n +" - i:"+ i +" = " + (n-i) + "个子序列");
+                // j >= h 为true的话，说明有下一个序列
                 for (int j = i; j >= h && Example.less(a[j], a[j-h]); j -= h) {
                     System.out.println("h = " + h);
-                    System.out.println("i = " + i);
                     System.out.println("a[j], a["+ j +"] = " + a[j]);
                     System.out.println("a[j-h], a["+ (j-h) +"] = " + a[j-h]);
                     System.out.println("--------------------");
 
                     Example.exch(a, j, j-h);
-                    System.out.println("<<<<< 排序之后 >>>>>");
+                    System.out.println("<<<<< 第"+ index +"排序之后 >>>>>");
                     Example.show(a);
                     System.out.println("==============================");
                     index++;
