@@ -17,7 +17,7 @@ public class Shell {
         int h = 1;
         System.out.println("n = a.length = " + a.length);
 
-        // 增量序列h
+        // 增量序列h，如果这个常数是5会变快
         while (h < n/3) {
             h = 3 * h + 1;
         }
