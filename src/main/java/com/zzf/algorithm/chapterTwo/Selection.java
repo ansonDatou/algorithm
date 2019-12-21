@@ -26,6 +26,9 @@ public class Selection {
      * 内：比较当前和min
      * 内循环之后进行替换
      *
+     * 外：趟数+方向
+     * 内：比较+方向
+     *
      * @param a
      */
     public static void sort(Comparable[] a) {

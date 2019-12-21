@@ -9,6 +9,10 @@ public class Shell {
      * 1、先取增量h1，分别对h1个组进行排序
      * 2、在取增量h2，分别对h2个组进行排序
      * 3、重复
+     *
+     * 外：趟数+方向
+     * 内：比较+方向
+     *
      * @param a
      */
     public static void sort(Comparable[] a) {

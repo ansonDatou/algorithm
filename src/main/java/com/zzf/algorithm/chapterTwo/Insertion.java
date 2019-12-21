@@ -9,6 +9,10 @@ public class Insertion {
      *  1、将index=1的元素与index=0的元素进行比较并替换
      *  2、将index=2的元素与index=1,0的元素进行比较并替换
      *  3、重复第二步
+     *
+     *  外：趟数+方向
+     *  内：比较+方向
+     *
      * @param a
      */
     public static void sort(Comparable[] a) {
