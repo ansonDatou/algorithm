@@ -93,7 +93,7 @@ public class Example {
      * @return
      */
     public static boolean less(Comparable v, Comparable w) {
-        System.out.println("less = " + v + ".compareTo(" + w + ")" + " < 0 = " + (v.compareTo(w) < 0));
+        System.out.println("【less】" + v + ".compareTo(" + w + ")" + " < 0 = " + (v.compareTo(w) < 0));
         return v.compareTo(w) < 0;
     }
 
@@ -104,6 +104,7 @@ public class Example {
      * @param j
      */
     public static void exch(Comparable[] a, int i, int j) {
+        System.out.println("【exch】i = " + i + ", j = " + j);
         Comparable t = a[i];
         a[i] = a[j];
         a[j] = t;

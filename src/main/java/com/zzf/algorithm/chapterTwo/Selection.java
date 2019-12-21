@@ -65,7 +65,7 @@ public class Selection {
     public static void main(String[] args) {
 
         // s o r t e x a m p l e
-        // 9 1 7 3 5 4 6 2 8 0
+        // 【循环45次】9 1 7 3 5 4 6 2 8 0
         String[] a = In.readStrings();
         sort(a);
         assert Example.isSorted(a);

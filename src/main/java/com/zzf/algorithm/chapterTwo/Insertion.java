@@ -34,7 +34,8 @@ public class Insertion {
 
     public static void main(String[] args) {
 
-        // 9 1 7 3 5 4 6 2 8 0
+        // 【循环27次】9 1 7 3 5 4 6 2 8 0
+        // 【循环45次】9 8 7 6 5 4 3 2 1 0
         String[] a = In.readStrings();
         sort(a);
         assert Example.isSorted(a);

@@ -28,6 +28,10 @@ public class Shell {
             // 进行h趟排序, i到n个子序列
             for (int i = h; i < n; i++) {
                 System.out.println("n:"+ n +" - i:"+ i +" = " + (n-i) + "个子序列");
+                // 用于debug
+                if (i == 9) {
+                    System.out.println("i = " + i);
+                }
                 // j >= h 为true的话，说明有下一个序列
                 for (int j = i; j >= h && Example.less(a[j], a[j-h]); j -= h) {
                     System.out.println("h = " + h);
@@ -55,7 +59,7 @@ public class Shell {
         System.out.println("x -= y : " + (x-=y));
 
         // 9 1 7 3 5 4 6 2 8 0
-        // 9 8 7 6 5 4 3 2 1 0
+        // 【循环13次】9 8 7 6 5 4 3 2 1 0
         String[] a = In.readStrings();
         sort(a);
         assert Example.isSorted(a);
