@@ -14,7 +14,7 @@ public class Merge {
         mergeIndex++;
         System.out.println("【merge "+ direction +"】= lo : " + lo + ", mid : " + mid + ", hi : " + hi + ", mergeIndex : " + mergeIndex);
 
-        // i = 低，j = 中+1，k = 索引
+        // i = 低，j = min+1，k = 索引
         int i = lo, j = mid + 1;
         for (int k = lo; k <= hi; k++) {
             aux[k] = a[k];
@@ -26,24 +26,25 @@ public class Merge {
         for (int k = lo; k <= hi; k++) {
             System.out.println("k = " + k + ", i = " + i + ", j = " + j);
             if (i > mid) {
-                // i > mid : 低 大于 中
+                // i > mid : i < mid 说明左边比较完了
                 System.out.println("(i > mid) : " + i +" > "+ mid + ", j+1 = "+ (j+1));
                 a[k] = aux[j++];
                 System.out.println("a[k] : a["+k+"] = " + a[k]);
                 System.out.println();
             } else if (j > hi) {
-                // j > hi : 中+1 大于 高
+                // j > hi : j=min+1 > hi 说明右边比较完了
                 System.out.println("(j > hi) : " + j +" > "+ hi + ", i+1 = " + (i+1));
                 a[k] = aux[i++];
                 System.out.println("a[k] : a["+k+"] = " + a[k]);
                 System.out.println();
             } else if (Example.less(aux[j], aux[i])) {
-                // aux[j] < aux[i] : 中值 小于 低值
+                // aux[j] < aux[i] : 右边值 < 左边值 则替换
                 System.out.println("(Example.less) aux["+j+"] = " + aux[j] + ", aux["+i+"] = " + aux[i]);
                 a[k] = aux[j++];
                 System.out.println("a[k] : a["+k+"] = " + a[k]);
                 System.out.println();
             } else {
+                // 右边值 > 左边值 则不替换
                 System.out.println("(else) aux[i] : aux["+i+"] = " + aux[i]);
                 a[k] = aux[i++];
                 System.out.println("(else) " + "a[k] : a["+k+"] = " + a[k]);
