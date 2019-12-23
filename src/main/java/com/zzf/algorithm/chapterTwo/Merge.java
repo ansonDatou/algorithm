@@ -14,39 +14,48 @@ public class Merge {
         mergeIndex++;
         System.out.println("【merge "+ direction +"】= lo : " + lo + ", mid : " + mid + ", hi : " + hi + ", mergeIndex : " + mergeIndex);
 
-        // i = 低，j = 中，k = 低
+        // i = 低，j = 中+1，k = 索引
         int i = lo, j = mid + 1;
         for (int k = lo; k <= hi; k++) {
             aux[k] = a[k];
         }
 
         Example.show(aux, "aux");
+        System.out.println();
 
         for (int k = lo; k <= hi; k++) {
             System.out.println("k = " + k + ", i = " + i + ", j = " + j);
             if (i > mid) {
                 // i > mid : 低 大于 中
-                System.out.println("(i > mid): " + i +" > "+ mid);
+                System.out.println("(i > mid) : " + i +" > "+ mid + ", j+1 = "+ (j+1));
                 a[k] = aux[j++];
-                System.out.println("a["+k+"]=" + a[k]);
+                System.out.println("a[k] : a["+k+"] = " + a[k]);
+                System.out.println();
             } else if (j > hi) {
-                // j > hi : 中 大于 高
-                System.out.println("(j > hi) : " + j +" > "+ hi);
+                // j > hi : 中+1 大于 高
+                System.out.println("(j > hi) : " + j +" > "+ hi + ", i+1 = " + (i+1));
                 a[k] = aux[i++];
-                System.out.println("a["+k+"]=" + a[k]);
+                System.out.println("a[k] : a["+k+"] = " + a[k]);
+                System.out.println();
             } else if (Example.less(aux[j], aux[i])) {
                 // aux[j] < aux[i] : 中值 小于 低值
                 System.out.println("(Example.less) aux["+j+"] = " + aux[j] + ", aux["+i+"] = " + aux[i]);
                 a[k] = aux[j++];
-                System.out.println("a["+k+"] = " + a[k]);
+                System.out.println("a[k] : a["+k+"] = " + a[k]);
+                System.out.println();
             } else {
+                System.out.println("(else) aux[i] : aux["+i+"] = " + aux[i]);
                 a[k] = aux[i++];
-                System.out.println("(else)" + "a["+k+"]=" + a[k]);
+                System.out.println("(else) " + "a[k] : a["+k+"] = " + a[k]);
+                System.out.println();
             }
         }
 
+        System.out.println();
         Example.show(a, "a");
         System.out.println("merge==================================================merge");
+        System.out.println();
+        System.out.println();
     }
 
     public static void sort(Comparable[] a) {
@@ -75,10 +84,13 @@ public class Merge {
         // 归并
         merge(a, lo, mid, hi, direction);
         System.out.println("sort==================================================sort");
+        System.out.println();
+        System.out.println();
     }
 
     public static void main(String[] args) {
         // 9 8 7 6 5 4 3 2 1 0
+        // 9 1 7 3 5 4 6 2 8 0
         String[] a = In.readStrings();
         sort(a);
         assert Example.isSorted(a);
