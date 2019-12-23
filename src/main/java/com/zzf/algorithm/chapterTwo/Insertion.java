@@ -31,7 +31,7 @@ public class Insertion {
                 // 谁和谁比较，就谁和谁替换，j 与 j-1
                 Example.exch(a, j, j - 1);
                 System.out.println("<<<<< 第 " + (i-1) + " 次排序后 >>>>>");
-                Example.show(a);
+                Example.show(a, "a");
                 index++;
             }
             System.out.println("================================================== i = " + i);
@@ -46,7 +46,7 @@ public class Insertion {
         String[] a = In.readStrings();
         sort(a);
         assert Example.isSorted(a);
-        Example.show(a);
+        Example.show(a, "a");
     }
 
     /**

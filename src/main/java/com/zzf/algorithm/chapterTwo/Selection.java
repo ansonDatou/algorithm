@@ -60,7 +60,7 @@ public class Selection {
             // 谁和谁比较，就谁和谁替换，i 与 min
             Example.exch(a, i, min);
             System.out.println("<<<<< 第 " + i + " 次排序后 >>>>>");
-            Example.show(a);
+            Example.show(a, "a");
             System.out.println("==================================================");
         }
         System.out.println("【共循环"+ index +"次】");
@@ -73,7 +73,7 @@ public class Selection {
         String[] a = In.readStrings();
         sort(a);
         assert Example.isSorted(a);
-        Example.show(a);
+        Example.show(a, "a");
     }
 
     /**

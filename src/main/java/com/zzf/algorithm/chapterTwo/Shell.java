@@ -45,7 +45,7 @@ public class Shell {
 
                     Example.exch(a, j, j-h);
                     System.out.println("<<<<< 第"+ index +"排序之后 >>>>>");
-                    Example.show(a);
+                    Example.show(a, "a");
                     System.out.println("==============================");
                     index++;
                 }
@@ -67,6 +67,6 @@ public class Shell {
         String[] a = In.readStrings();
         sort(a);
         assert Example.isSorted(a);
-        Example.show(a);
+        Example.show(a, "a");
     }
 }

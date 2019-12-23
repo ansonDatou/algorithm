@@ -20,7 +20,7 @@ public class Example {
                 System.out.println("j - 1 :" + (j - 1) + " value:" + a[j-1]);
                 System.out.println("-------------交换之后-----------------");
                 exch(a, j, j - 1);
-                show(a);
+                show(a, "a");
             }
             System.out.println("================================================== i = " + i);
         }
@@ -110,9 +110,11 @@ public class Example {
         a[j] = t;
     }
 
-    public static void show(Comparable[] a) {
+    public static void show(Comparable[] a, String arrayName) {
+        StdOut.print(arrayName + " = ");
         for (int i = 0; i < a.length; i++) {
-            StdOut.print(a[i] + " ");
+//            StdOut.print(a[i] + " ");
+            StdOut.print("a["+ i +"]=" + a[i] + " ");
         }
         StdOut.println();
     }
@@ -153,7 +155,7 @@ public class Example {
         String[] a = In.readStrings();
         sortOfInsert(a);
         assert isSorted(a);
-        show(a);
+        show(a, "a");
 
     }
 }

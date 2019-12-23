@@ -9,7 +9,7 @@ public class Main {
         // 9 8 7 6 5 4 3 2 1 0
         String[] a = In.readStrings();
         shell(a);
-        Example.show(a);
+        Example.show(a, "a");
     }
 
     public static void select(Comparable[] a) {
