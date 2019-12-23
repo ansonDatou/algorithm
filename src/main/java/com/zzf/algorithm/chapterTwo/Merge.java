@@ -26,20 +26,22 @@ public class Merge {
             System.out.println("k = " + k + ", i = " + i + ", j = " + j);
             if (i > mid) {
                 // i > mid : 低 大于 中
-                System.out.println("【i > mid】 : " + i +" > "+ mid + ", a["+k+"]=" + a[k]);
+                System.out.println("【i > mid】 : " + i +" > "+ mid);
                 a[k] = aux[j++];
+                System.out.println("a["+k+"]=" + a[k]);
             } else if (j > hi) {
                 // j > hi : 中 大于 高
-                System.out.println("【j > hi】 : " + j +" > "+ hi + ", a["+k+"]=" + a[k]);
+                System.out.println("【j > hi】 : " + j +" > "+ hi);
                 a[k] = aux[i++];
+                System.out.println("a["+k+"]=" + a[k]);
             } else if (Example.less(aux[j], aux[i])) {
                 // aux[j] < aux[i] : 中值 小于 低值
-                Comparable x = aux[j++];
-                a[k] = x;
-                System.out.println("【Example.less(aux[j], aux[i])】" + ", a["+k+"] = " + a[k]);
+                System.out.println("【less】aux["+j+"] = " + aux[j] + ", aux["+i+"] = " + aux[i]);
+                a[k] = aux[j++];
+                System.out.println("a["+k+"] = " + a[k]);
             } else {
-                System.out.println("【else】" + ", a["+k+"]=" + a[k]);
                 a[k] = aux[i++];
+                System.out.println("【else】" + "a["+k+"]=" + a[k]);
             }
         }
 
@@ -76,7 +78,7 @@ public class Merge {
     }
 
     public static void main(String[] args) {
-        // 【循环13次】9 8 7 6 5 4 3 2 1 0
+        // 【循环次】9 8 7 6 5 4 3 2 1 0
         String[] a = In.readStrings();
         sort(a);
         assert Example.isSorted(a);
