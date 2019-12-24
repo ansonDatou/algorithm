@@ -3,13 +3,11 @@ package com.zzf.algorithm.chapterTwo;
 import com.zzf.algorithm.base.In;
 
 /**
- * 自顶向下归并
+ * 自底向上归并
  */
-public class Merge {
+public class MergeBU {
 
     private static Comparable[] aux;
-
-    private static int sortIndex = 0;
 
     private static int mergeIndex = 0;
 
@@ -78,40 +76,13 @@ public class Merge {
     }
 
     public static void sort(Comparable[] a) {
-        aux = new Comparable[a.length];
-        sort(a, 0, a.length - 1, "all");
-    }
-
-    /**
-     * 分割，分割为左边和右边
-     * @param a
-     * @param lo
-     * @param hi
-     * @param direction
-     */
-    public static void sort(Comparable[] a, int lo, int hi, String direction) {
-        sortIndex++;
-
-        // 递归退出条件
-        if (hi <= lo) {
-            return;
+        int n = a.length;
+        aux = new Comparable[n];
+        for (int sz = 1; sz < n; sz = sz + sz) {
+            for (int lo = 0; lo < n - sz; lo += sz + sz) {
+                merge(a, lo, lo + sz - 1, Math.min(lo + sz + sz - 1, n - 1), "MergeBU");
+            }
         }
-
-        // 取mid值
-        int mid = lo + (hi - lo) / 2;
-        System.out.println("【sort "+ direction +"】= lo : " + lo+ ", mid : " + mid + ", hi : " + hi + ", sortIndex : " + sortIndex);
-
-        // 分割左侧
-        sort(a, lo, mid, "left");
-
-        // 分割右侧
-        sort(a, mid + 1, hi, "right");
-
-        // 归并
-        merge(a, lo, mid, hi, direction);
-        System.out.println("sort==================================================sort");
-        System.out.println();
-        System.out.println();
     }
 
     public static void main(String[] args) {
