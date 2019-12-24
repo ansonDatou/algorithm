@@ -52,7 +52,7 @@ public class Quick {
             // 因为从i是基准，所以从++i开始比较
             // false 退出，说明 a[++i] > v，则需要把a[++i]放到v的右边（左指针扫描到一个值，应该在v的右边）
             while (Example.less(a[++i], v)) {
-                // 低==高则退出
+                // 左指针==高则退出
                 if (i == hi) {
                     break;
                 }
@@ -63,7 +63,7 @@ public class Quick {
             // 扫描右，检查扫描是否结束并交换元素
             // false 退出，说明 v > a[--j]，则需要把a[--j]放到v的左边（右指针扫描到一个值，应该在v的左边）
             while (Example.less(v, a[--j])) {
-                // 高==低则退出
+                // 右指针==低则退出
                 if (j == lo) {
                     break;
                 }
@@ -75,12 +75,14 @@ public class Quick {
             }
 
             Example.exch(a, i, j);
+
             Example.show(a, "while 内 a");
             System.out.println("【partition exch】i = " + i + ", j = " + j);
             System.out.println();
         }
 
         Example.exch(a, lo, j);
+
         Example.show(a, "while 外 a");
         return j;
     }
