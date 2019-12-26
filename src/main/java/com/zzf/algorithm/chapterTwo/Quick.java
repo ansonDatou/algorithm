@@ -52,10 +52,12 @@ public class Quick {
 
             System.out.println();
             System.out.println("【partition left】i+1 = " + (i+1));
+
             // 扫描左，检查扫描是否结束并交换元素
             // 因为从i是基准，所以从++i开始比较
             // false 退出，说明 a[++i] > v，则需要把a[++i]放到v的右边（左指针扫描到一个值，应该在v的右边）
             while (Example.less(a[++i], v)) {
+
                 // 左指针==高，则退出，说明左指针已经从低到高扫描完了
                 System.out.println("i:"+ i +" == hi:"+ hi +" = " + (i == hi));
                 if (i == hi) {
@@ -65,10 +67,13 @@ public class Quick {
 
             System.out.println();
             System.out.println("【partition right】j-1 = " + (j-1));
+
             // 扫描右，检查扫描是否结束并交换元素
             // false 退出，说明 v > a[--j]，则需要把a[--j]放到v的左边（右指针扫描到一个值，应该在v的左边）
             while (Example.less(v, a[--j])) {
+
                 // 右指针==低，则退出，说明右指针已经从高到底扫描完了
+                // j == lo 是冗余的条件，因为切分元素就是a[lo]，它不可能比自己小
                 System.out.println("j:"+ j +" == lo:"+ lo +" = " + (j == lo));
                 if (j == lo) {
                     break;
