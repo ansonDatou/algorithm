@@ -57,7 +57,7 @@ public class Quick {
             // false 退出，说明 a[++i] > v，则需要把a[++i]放到v的右边（左指针扫描到一个值，应该在v的右边）
             while (Example.less(a[++i], v)) {
                 // 左指针==高，则退出，说明左指针已经从低到高扫描完了
-                System.out.println("i:"+ i +" == hi:"+ hi +" " + (i == hi));
+                System.out.println("i:"+ i +" == hi:"+ hi +" = " + (i == hi));
                 if (i == hi) {
                     break;
                 }
@@ -69,7 +69,7 @@ public class Quick {
             // false 退出，说明 v > a[--j]，则需要把a[--j]放到v的左边（右指针扫描到一个值，应该在v的左边）
             while (Example.less(v, a[--j])) {
                 // 右指针==低，则退出，说明右指针已经从高到底扫描完了
-                System.out.println("j:"+ j +" == lo:"+ lo +" " + (j == lo));
+                System.out.println("j:"+ j +" == lo:"+ lo +" = " + (j == lo));
                 if (j == lo) {
                     break;
                 }

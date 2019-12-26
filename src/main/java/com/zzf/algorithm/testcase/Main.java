@@ -1,8 +1,12 @@
 package com.zzf.algorithm.testcase;
 
 import com.zzf.algorithm.base.In;
+import com.zzf.algorithm.base.StdRandom;
 import com.zzf.algorithm.chapterTwo.Example;
 
+/**
+ * 测验
+ */
 public class Main {
 
     public static Comparable[] aux;
@@ -10,8 +14,54 @@ public class Main {
     public static void main(String[] args) {
         // 9 8 7 6 5 4 3 2 1 0
         String[] a = In.readStrings();
-        sort(a);
+        sortOfQuick(a);
         Example.show(a, "a");
+    }
+
+    private static void sortOfQuick(Comparable[] a) {
+        StdRandom.shuffle(a);
+        sortOfQuick(a, 0, a.length-1);
+    }
+
+    private static void sortOfQuick(Comparable[] a, int lo, int hi) {
+        if (hi <= lo) {
+            return;
+        }
+
+        int j = partition(a, lo, hi);
+        sortOfQuick(a, lo, j-1);
+        sortOfQuick(a, j+1, hi);
+    }
+
+    private static int partition(Comparable[] a, int lo, int hi) {
+        // 左右指针
+        int i = lo, j = hi+1;
+
+        // 基准
+        Comparable v = a[lo];
+
+        while (true) {
+            while (Example.less(a[++i], v)) {
+                if (i==hi) {
+                    break;
+                }
+            }
+
+            while (Example.less(v, a[--j])) {
+                if (j == lo) {
+                    break;
+                }
+            }
+
+            if (i >= j){
+                break;
+            }
+
+            Example.exch(a, i, j);
+        }
+
+        Example.exch(a, lo, j);
+        return j;
     }
 
     public static void merge(Comparable[] a, int lo, int mid, int hi) {
@@ -96,6 +146,7 @@ public class Main {
             h = h/3;
         }
         System.out.println("index = "+index);
-
     }
+
+
 }
