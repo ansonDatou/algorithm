@@ -33,7 +33,7 @@ public class Heap {
 
     /**
      * 下沉
-     * 二叉堆中比较并替换
+     * 二叉堆中比较并替换，先比较两个子，取出子中最大，再和父比较
      * @param pq
      * @param k
      * @param n
