@@ -2,6 +2,9 @@ package com.zzf.algorithm.chapterTwo;
 
 import com.zzf.algorithm.base.In;
 
+/**
+ * 冒泡排序
+ */
 public class Bubble {
 
     public static void main(String[] args) {
