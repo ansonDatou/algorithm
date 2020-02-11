@@ -52,6 +52,8 @@ public class Selection {
                     // 真正最小的，更新min值
                     min = j;
                 }
+
+                // index 没有实际意义，只是作为标记，输出循环几次
                 index++;
             }
 
