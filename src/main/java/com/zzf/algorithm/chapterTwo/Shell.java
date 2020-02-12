@@ -19,6 +19,8 @@ public class Shell {
         int index = 0;
         int n = a.length;
         int h = 1;
+
+        // a.length = 10
         System.out.println("n = a.length = " + a.length);
 
         // 增量序列h，如果这个常数是5会变快
@@ -26,8 +28,10 @@ public class Shell {
             h = 3 * h + 1;
         }
 
+        // h = 4
         System.out.println("init h = " + h);
 
+        // h = 1 就没有必要比较了
         while (h >= 1) {
             // 进行h趟排序, i到n个子序列
             for (int i = h; i < n; i++) {
